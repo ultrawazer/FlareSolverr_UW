@@ -156,6 +156,8 @@ def get_webdriver(proxy: dict = None) -> WebDriver:
     # Fix for Chrome 117 | https://github.com/FlareSolverr/FlareSolverr/issues/910
     if USER_AGENT is not None:
         options.add_argument('--user-agent=%s' % USER_AGENT)
+    ua = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36'
+    options.add_argument(f'--user-agent={ua}')
 
     proxy_extension_dir = None
     if proxy and all(key in proxy for key in ['url', 'username', 'password']):
